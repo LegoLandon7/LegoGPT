@@ -172,27 +172,5 @@ client.once('clientReady', () => {
     //fetchGuilds(client);
 });
 
-async function fetchGuilds(client) {
-    for (const [id, guild] of client.guilds.cache) {
-        const owner = await guild.fetchOwner();
-
-        const channel = guild.channels.cache.find(
-            ch => ch.type === 0 && ch.permissionsFor(guild.members.me).has('CreateInstantInvite')
-        );
-
-        let inviteURL = 'No permission to create invite';
-        if (channel) {
-            const invite = await channel.createInvite({ maxAge: 1000, maxUses: 0, unique: false });
-            inviteURL = invite.url;
-        }
-
-        console.log(`Name: ${guild.name}`);
-        console.log(`Members: ${guild.memberCount}`);
-        console.log(`Owner: ${owner.user.tag}`);
-        console.log(`Invite: ${inviteURL}`);
-        console.log('-------------------------');
-    }
-}
-
 // Login
 client.login(process.env.BOT_TOKEN);
