@@ -9,9 +9,7 @@ The file should contain fields containing the bot-token and client-id's.
 
 ```
 BOT_TOKEN=[]
-CLIENT_ID[]
-APP_ID=[]
-PUBLIC_KEY=[]
+API_KEY=[]
 ```
 
 Then make sure the arguments replacing the [] brackets are the actual data needed.
